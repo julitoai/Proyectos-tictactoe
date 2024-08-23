@@ -1,8 +1,8 @@
 import { useState } from "react"
 
 const TURNS = {
-  X: "x",
-  O: "o"
+  X: "❌",
+  O: "⚪"
 }
 
 const Square = ({children, isSelected, updateBoard, index }) => {
@@ -58,6 +58,10 @@ function App() {
     setTurn(TURNS.X)
     setWinner(null)
   }
+
+  const checkEndGame = (newBoard) => {
+    return newBoard.every((square)=> square != null)
+  }
   
   const updateBoard = (index) => {
 
@@ -72,6 +76,8 @@ function App() {
     const newWinner = checkWinner(newBoard)
     if(newWinner){
     setWinner(newWinner)
+    }else if(checkEndGame(newBoard)){
+      setWinner(false)
     }
 
   }
@@ -103,6 +109,7 @@ function App() {
       <Square isSelected ={turn === TURNS.X}>{TURNS.X}</Square>
       <Square isSelected ={turn === TURNS.O}>{TURNS.O}</Square>
      </section>
+     <button onClick={resetGame}>Reiniciar</button>
      {
       winner != null && (
         <section className="winner">
