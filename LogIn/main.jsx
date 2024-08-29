@@ -1,7 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Login from './Login'
-import './Login.css'
+import './index.css'
+import Topics from './Topics'
+import Summary from './Summary'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

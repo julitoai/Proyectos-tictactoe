@@ -4,10 +4,10 @@ const Login = () => {
       <h1 className="h1-form">Multi-Step Register Form</h1>
       <div className="container-section">
         <section className="section-box">
-          <h2 className="text-form">Register</h2>
+          <h2>Register</h2>
           <form className="form" action="get">
             <span className="span-form">
-            <h3 className="text-form">Name</h3>
+            <h3 className="register-text">Name</h3>
             <input
               className="input-form"
               type="text"
@@ -15,7 +15,7 @@ const Login = () => {
             />
             </span>
             <span className="span-form">
-            <h3 className="text-form">Email</h3>
+            <h3 className="register-text">Email</h3>
             <input
               className="input-form"
               type="text"
@@ -23,7 +23,7 @@ const Login = () => {
             />
             </span>
             <span className="span-button">
-            <button className="button-form">Continuar</button>
+            <button className="button-form">Continue</button>
             </span>
           </form>
         </section>
