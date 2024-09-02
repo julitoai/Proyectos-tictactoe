@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Topics = () => {
     return (
       <>
@@ -13,7 +15,8 @@ const Topics = () => {
               </div>
 
               <span className="span-button">
-              <button className="button-form">Continue</button>
+              <button className="button-form"><Link className="link" to={`/Summary.jsx`}>Continue</Link></button>
+
               </span>
             
           </section>

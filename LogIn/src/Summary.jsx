@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Summary = () => {
     return (
       <>
@@ -17,7 +19,8 @@ const Summary = () => {
             </ul>
             </div>
             <span className="span-button">
-            <button className="button-form">Confirm</button>
+            <button className="button-form"><Link className="link" to={`/`}>Confirm</Link></button>
+
             </span>            
           </section>
         </div>
