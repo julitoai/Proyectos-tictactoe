@@ -25,7 +25,7 @@ const Login = () => {
             />
             </span>
             <span className="span-button">
-            <button className="button-form"><Link className="link" to={`/Topics.jsx`}>Continue</Link></button>
+            <button className="button-form"><Link className="link" to={`/Topics`}>Continue</Link></button>
 
             </span>
           </form>

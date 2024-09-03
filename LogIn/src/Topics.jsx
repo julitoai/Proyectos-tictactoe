@@ -15,7 +15,7 @@ const Topics = () => {
               </div>
 
               <span className="span-button">
-              <button className="button-form"><Link className="link" to={`/Summary.jsx`}>Continue</Link></button>
+              <button className="button-form"><Link className="link" to={`/Summary`}>Continue</Link></button>
 
               </span>
             

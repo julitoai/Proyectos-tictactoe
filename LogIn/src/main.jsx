@@ -19,15 +19,15 @@ const router = createBrowserRouter([
     errorElement:<ErrorPage/>
   },
   {
-    path: "Login.jsx",
+    path: "Login",
     element: <Login/>,
   },
   {
-    path: "Summary.jsx",
+    path: "Summary",
     element: <Summary/>,
   },
   {
-    path: "Topics.jsx",
+    path: "Topics",
     element: <Topics/>,
   },
 ]);
