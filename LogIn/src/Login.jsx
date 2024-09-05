@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 
 const Login = () => {
+
+  const isCompleted = () =>{
+    
+  } 
+
   return (
     <>
       <h1 className="h1-form">Multi-Step Register Form</h1>
