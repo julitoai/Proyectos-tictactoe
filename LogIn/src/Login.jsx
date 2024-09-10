@@ -3,30 +3,54 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
 
-  const handleInputSubmit = (e) =>{
-    e.preventDefault();
-    console.log("onchange funcionando")
-      const { name, value } = e.target;
-      setFormValues({
-        ...formValues,
-        [name]:value
-      })
-  }
-
   const [formValues, setFormValues] = useState({
     input1:'',
     input2:''
-});
-  const [error, setError] = useState(" ");
+  });
 
+  const [errors, setErrors] = useState({
+    input1: "",
+    input2: ""
+  });
+
+  
   const validacionInputs = () => {
-    if(formValues.input1 === ''){
-      setError('Este campo es obligatorio')
-    }else if(formValues.input2 === ''){
-      setError('Este campo es obligatorio')
-    }else{
-      setError('')
+    const newErrors = {};
+    if(formValues.input1.trim() === ''){
+      newErrors.input1 = 'El nombre es obligatorio';
     }
+    if(formValues.input2.trim() === ''){
+      newErrors.input2 = 'El Email es obligatorio';
+    }
+    return newErrors;
+  };
+
+  const handleInputSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validacionInputs();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);  
+    } else {
+      setErrors({});
+      console.log("Formulario válido, continuar con el siguiente paso");
+    }
+  };
+
+  // const handleInputSubmit = (e) =>{
+  //   e.preventDefault();
+  //   validacionInputs();
+  //   if(!error){
+  //     console.log('Formulario válido')
+  //   }
+  // }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: value
+    })
+
   }
 
   return (
@@ -44,14 +68,9 @@ const Login = () => {
               className="input-form"
               type="text"
               placeholder="Enter your name"
-              onChange={(e) => {
-                setFormValues({
-                  ...formValues,
-                  input1: e.target.value
-                })
-                validacionInputs();
-              }}
+              onChange={handleInputChange}
             />
+            {errors.input1 && <p className="error">{errors.input1}</p>}
             </span>
             <span className="span-form">
             <h3 className="register-text">Email</h3>
@@ -61,23 +80,20 @@ const Login = () => {
               className="input-form"
               type="text"
               placeholder="Enter your E-mail"
-              onChange={(e) => {
-                setFormValues({
-                  ...formValues,
-                  input2: e.target.value
-                })
-                validacionInputs();
-              }}
+              onChange={handleInputChange}
             />
+            {errors.input2 && <p className="error">{errors.input2}</p>}
+
             </span>
-            {error && <p>{error}</p>}
             <span className="span-button">
-            <button type="submit" className="button-form"><Link className="link" to={`/Topics`}>Continue</Link></button>
+            <button type="submit" className="button-form">Continue</button>
             </span>            
           </form>
         </section>
       </div>
     </>
   );
+  //<Link className="link" to={`/Topics`}>Continue</Link>
 };
+
 export default Login;
