@@ -13,7 +13,13 @@ const Login = () => {
     input2: ""
   });
 
-  
+  const mailRegex = /^[a-zA-Z0-9]{4,12}@[a-zA-Z0-9]{4,10}\.[a-zA-Z]{2,}$/
+
+  const validacionMail = () => {
+    const mailToValidate = formValues.input2
+    mailRegex.test(mailToValidate)? console.log('Mail valido'):console.log('Mail incorrecto')
+  }
+
   const validacionInputs = () => {
     const newErrors = {};
     if(formValues.input1.trim() === ''){
@@ -30,19 +36,12 @@ const Login = () => {
     const validationErrors = validacionInputs();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);  
-    } else {
+    }else {
       setErrors({});
       console.log("Formulario válido, continuar con el siguiente paso");
     }
-  };
-
-  // const handleInputSubmit = (e) =>{
-  //   e.preventDefault();
-  //   validacionInputs();
-  //   if(!error){
-  //     console.log('Formulario válido')
-  //   }
-  // }
+    return console.log("pedos y vergas")
+    };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
