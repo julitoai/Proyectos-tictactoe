@@ -10,23 +10,30 @@ const Login = () => {
 
   const [errors, setErrors] = useState({
     input1: "",
-    input2: ""
+    input2: "",
+    input3: ""
   });
 
   const mailRegex = /^[a-zA-Z0-9]{4,12}@[a-zA-Z0-9]{4,10}\.[a-zA-Z]{2,}$/
 
   const validacionMail = () => {
     const mailToValidate = formValues.input2
-    mailRegex.test(mailToValidate)? console.log('Mail valido'):console.log('Mail incorrecto')
+    return mailRegex.test(mailToValidate)
   }
 
+  
   const validacionInputs = () => {
+ 
     const newErrors = {};
+
     if(formValues.input1.trim() === ''){
       newErrors.input1 = 'El nombre es obligatorio';
     }
     if(formValues.input2.trim() === ''){
       newErrors.input2 = 'El Email es obligatorio';
+    }
+    else if(!validacionMail()){
+      newErrors.input3 = 'El Email no es valido'
     }
     return newErrors;
   };
@@ -40,7 +47,6 @@ const Login = () => {
       setErrors({});
       console.log("Formulario válido, continuar con el siguiente paso");
     }
-    return console.log("pedos y vergas")
     };
 
   const handleInputChange = (e) => {
@@ -51,6 +57,7 @@ const Login = () => {
     })
 
   }
+
 
   return (
     <>
@@ -82,7 +89,7 @@ const Login = () => {
               onChange={handleInputChange}
             />
             {errors.input2 && <p className="error">{errors.input2}</p>}
-
+            {errors.input3 && <p className="error">{errors.input3}</p>}
             </span>
             <span className="span-button">
             <button type="submit" className="button-form">Continue</button>
