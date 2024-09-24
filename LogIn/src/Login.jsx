@@ -56,6 +56,26 @@ const Login = () => {
       [name]: value
     })
 
+    const updatedErrors = { ...errors };
+  
+    if (name === 'input1' && value.trim() === '') {
+      updatedErrors.input1 = 'El nombre es obligatorio';
+    } else if (name === 'input1') {
+      delete updatedErrors.input1;
+    }
+    
+    if (name === 'input2') {
+      if (value.trim() === '') {
+        updatedErrors.input2 = 'El Email es obligatorio';
+      } else if (!mailRegex.test(value)) {
+        updatedErrors.input3 = 'El Email no es válido';
+      } else {
+        delete updatedErrors.input2;
+        delete updatedErrors.input3;
+      }
+    }
+  
+    setErrors(updatedErrors);
   }
 
 
@@ -92,14 +112,15 @@ const Login = () => {
             {errors.input3 && <p className="error">{errors.input3}</p>}
             </span>
             <span className="span-button">
-            <button type="submit" className="button-form">Continue</button>
+              <Link className="link" to={`/Topics`}>
+              <button type="submit" className="button-form" disabled={Object.keys(errors).length > 0}>Continue</button>
+              </Link>
             </span>            
           </form>
         </section>
       </div>
     </>
   );
-  //<Link className="link" to={`/Topics`}>Continue</Link>
 };
 
 export default Login;
