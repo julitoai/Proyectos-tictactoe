@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Login from './Login.jsx'
-import Topics from './Topics.jsx'
+import Topics from './Topics/Topics.jsx'
 import Summary from './Summary.jsx'
 import './index.css'
 import Root from './routes/root.jsx';

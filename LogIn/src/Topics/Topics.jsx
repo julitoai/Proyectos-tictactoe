@@ -1,15 +1,29 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Button from "./Button"
 
 const Topics = () => {
   
   const [selectedFields, setSelectedFields] = useState()
 
-  
+  const [buttonState, setButtonState] = useState()
+
   /* botones seleccionados */
+
+  let setButton = Button.isSelected
+
+   /*hacer que compruebe el booleano
+    con el estado buttonState*/
+    
   function handleButtonClick(){
-    setSelectedFields(selectedFields.value);
-    console.log(selectedFields)
+
+    if(selectedButton === false){
+      selectedButton = true
+      setSelectedFields(selectedButton)
+    }else{
+      selectedButton
+    }
+    return console.log('se pudo' + selectedButton);
   }
 
 
@@ -21,16 +35,15 @@ const Topics = () => {
             <h2 className="text-form">Which topics you are interested in?</h2>
               
               <div className="container-button">
-              <button value= '1' onClick={handleButtonClick} className="button-topics">Software Development</button>
-              <button value= '2' onClick={handleButtonClick} className="button-topics">User Experience</button>
-              <button value= '3' onClick={handleButtonClick} className="button-topics">Graphic Design</button>
+              <Button onClick={handleButtonClick} content='Software Development' isSelected={false}/>
+              <Button onClick={handleButtonClick} content='User Experience' isSelected={false}/>
+              <Button onClick={handleButtonClick} content='Graphic Design' isSelected={false}/>
               </div>
 
               <span className="span-button">
               <button className="button-form"><Link className="link" to={`/Summary`}>Continue</Link></button>
 
               </span>
-            
           </section>
         </div>
         <p>
