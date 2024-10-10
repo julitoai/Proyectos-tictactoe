@@ -57,18 +57,18 @@ const Login = () => {
     })
 
     const updatedErrors = { ...errors };
-  
-    if (name === 'input1' && value.trim() === '') {
+
+    if (name === 'input1' && value.trim() === ''|| value === " ") {
       updatedErrors.input1 = 'El nombre es obligatorio';
     } else if (name === 'input1') {
       delete updatedErrors.input1;
     }
     
-    if (name === 'input2') {
+    if (name === 'input2'|| value === " ") {
       if (value.trim() === '') {
-        updatedErrors.input2 = 'El Email es obligatorio';
+        updatedErrors.input2 = 'El Email es obligatorio updatedErrors';
       } else if (!mailRegex.test(value)) {
-        updatedErrors.input3 = 'El Email no es válido';
+        updatedErrors.input3 = 'El Email no es válido updatedErrors';
       } else {
         delete updatedErrors.input2;
         delete updatedErrors.input3;
