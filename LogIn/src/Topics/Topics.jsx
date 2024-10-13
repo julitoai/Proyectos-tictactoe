@@ -6,24 +6,20 @@ const Topics = () => {
   
   const [selectedFields, setSelectedFields] = useState()
 
-  const [buttonState, setButtonState] = useState()
+  /* const [buttonState, setButtonState] = useState() */
 
   /* botones seleccionados */
 
-  let setButton = Button.isSelected
+  /* let setButton = Button.isSelected */
 
    /*hacer que compruebe el booleano
     con el estado buttonState*/
     
   function handleButtonClick(){
 
-    if(selectedButton === false){
-      selectedButton = true
-      setSelectedFields(selectedButton)
-    }else{
-      selectedButton
+    if(Button.isSelected != false){
+      alert("boton tocado")
     }
-    return console.log('se pudo' + selectedButton);
   }
 
 
