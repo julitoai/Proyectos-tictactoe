@@ -4,22 +4,18 @@ import Button from "./Button"
 
 const Topics = () => {
   
-  const [selectedFields, setSelectedFields] = useState()
+  const [selectedFields, setSelectedFields] = useState('')
 
   /* const [buttonState, setButtonState] = useState() */
 
   /* botones seleccionados */
 
   /* let setButton = Button.isSelected */
-
-   /*hacer que compruebe el booleano
-    con el estado buttonState*/
     
-  function handleButtonClick(){
-
-    if(Button.isSelected != false){
-      alert("boton tocado")
-    }
+  const handleButtonClick = () => {
+    console.log('activado')
+    const contentButton = Button.props.content
+    setSelectedFields(contentButton)
   }
 
 

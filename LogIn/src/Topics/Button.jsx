@@ -2,7 +2,7 @@
 function  Button(props) {
 return (
 <>
-<button className="button-topics">{props.content}</button>
+<button onClick={props.onClick} className="button-topics">{props.content}</button>
 {props.isSelected}
 </>
 )
