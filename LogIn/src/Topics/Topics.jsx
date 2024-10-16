@@ -12,7 +12,7 @@ const Topics = () => {
 
   /* let setButton = Button.isSelected */
     
-  const handleButtonClick = () => {
+  const handleButtonClick = (Button) => {
     console.log('activado')
     const contentButton = Button.props.content
     setSelectedFields(contentButton)
