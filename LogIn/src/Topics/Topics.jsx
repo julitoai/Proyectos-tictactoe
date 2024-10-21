@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import {  useState } from "react";
 import Button from "./Button"
 
 const Topics = () => {
@@ -11,13 +11,14 @@ const Topics = () => {
   /* botones seleccionados */
 
   /* let setButton = Button.isSelected */
-    
-  const handleButtonClick = (Button) => {
+
+
+  const handleButtonClick = () => {
     console.log('activado')
-    const contentButton = Button.props.content
+    console.log('a')
+    const contentButton = Button
     setSelectedFields(contentButton)
   }
-
 
     return (
       <>
