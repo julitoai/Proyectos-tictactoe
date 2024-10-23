@@ -10,6 +10,7 @@ const Root = () => {
         <button className="button-form"><Link className="link" to={`Topics`}>Topics</Link></button>
         <button className="button-form"><Link className="link" to={`Summary`}>Summary</Link></button>
       </section>
+      <button className="button-form"><Link className="link" to={`Api`}>API</Link></button>
     </div>
   </>
   );

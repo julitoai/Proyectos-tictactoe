@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import {  useState } from "react";
 import Button from "./Button"
 
-const Topics = () => {
+const Topics = (props) => {
   
   const [selectedFields, setSelectedFields] = useState('')
 
@@ -15,9 +15,10 @@ const Topics = () => {
 
   const handleButtonClick = () => {
     console.log('activado')
-    console.log('a')
-    const contentButton = Button
-    setSelectedFields(contentButton)
+    console.log(this.props.content)
+    const contentButton = this.props.content
+    return setSelectedFields(contentButton)
+    
   }
 
     return (

@@ -11,6 +11,7 @@ import Summary from './Summary.jsx'
 import './index.css'
 import Root from './routes/root.jsx';
 import ErrorPage from './error-page.jsx';
+import Api from './Api.jsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     path: "Topics",
     element: <Topics/>,
   },
+  {
+    path: "Api",
+    element: <Api/>,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
