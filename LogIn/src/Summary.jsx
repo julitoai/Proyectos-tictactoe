@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
+import Topics from "./Topics/Topics";
+import { useState } from "react";
 
 const Summary = () => {
+
+  const [campos, setCampos] = useState([])
+  const spreadCampos = Topics.selectedFields
+  console.log(spreadCampos)
+  /*setCampos([...spreadCampos])*/
     return (
       <>
         <h1 className="h1-form">Multi-Step Register Form</h1>
@@ -14,8 +21,7 @@ const Summary = () => {
             <div>
             <p><span className="grey-text">Topics:</span></p>
             <ul className="list-sum">
-            <li>User Experience</li>
-            <li>Graphic Design</li>
+            <li>{campos}</li>
             </ul>
             </div>
             <span className="span-button">

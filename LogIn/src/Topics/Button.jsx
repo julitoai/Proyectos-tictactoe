@@ -1,10 +1,13 @@
+const Props = {
+    addContent: () => {},
+    content: '',
+    selected: false
+}
 
-function  Button(props) {
+const Button = ({addContent, content, selected}) => {
 return (
 <>
-<button onClick={props.onClick} className="button-topics">{props.content}</button>
-{props.isselected}
-</>
+<button className="button-topics" onClick={()=>addContent(content)} selected={selected}>{content}</button></>
 )
  
 }

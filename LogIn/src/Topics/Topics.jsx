@@ -2,25 +2,18 @@ import { Link } from "react-router-dom";
 import {  useState } from "react";
 import Button from "./Button"
 
-const Topics = (props) => {
+const Topics = () => {
   
-  const [selectedFields, setSelectedFields] = useState('')
+  const [selectedFields, setSelectedFields] = useState({
+    content1: '',
+    content2: '',
+    content3: ''
+  })
 
-  /* const [buttonState, setButtonState] = useState() */
-
-  /* botones seleccionados */
-
-  /* let setButton = Button.isSelected */
-
-
-  const handleButtonClick = () => {
-    console.log('activado')
-    console.log(this.props.content)
-    const contentButton = this.props.content
-    return setSelectedFields(contentButton)
-    
+  const handleClick = (content) => {
+    console.log('activo')
+    setSelectedFields(selectedFields.content1)
   }
-
     return (
       <>
         <h1 className="h1-form">Multi-Step Register Form</h1>
@@ -29,9 +22,9 @@ const Topics = (props) => {
             <h2 className="text-form">Which topics you are interested in?</h2>
               
               <div className="container-button">
-              <Button onClick={handleButtonClick} content='Software Development' isSelected={false}/>
-              <Button onClick={handleButtonClick} content='User Experience' isSelected={false}/>
-              <Button onClick={handleButtonClick} content='Graphic Design' isSelected={false}/>
+              <Button addContent={handleClick} content='Software Development' selected={false}/>
+              <Button addContent={handleClick} content='User Experience' selected={false}/>
+              <Button addContent={handleClick} content='Graphic Design' selected={false}/>
               </div>
 
               <span className="span-button">
