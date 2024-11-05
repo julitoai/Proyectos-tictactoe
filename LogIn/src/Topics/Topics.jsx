@@ -1,43 +1,67 @@
 import { Link } from "react-router-dom";
-import {  useState } from "react";
-import Button from "./Button"
+import { useState } from "react";
+import Button from "./Button";
 
 const Topics = () => {
-  
-  const [selectedFields, setSelectedFields] = useState({
-    content1: '',
-    content2: '',
-    content3: ''
-  })
+  const [selectedFields, setSelectedFields] = useState("");
+  const [selectedBool, setSelectedBool] = useState();
 
   const handleClick = (content) => {
-    console.log('activo')
-    setSelectedFields(selectedFields.content1)
-  }
-    return (
-      <>
-        <h1 className="h1-form">Multi-Step Register Form</h1>
-        <div className="container-section">
-          <section className="section-box">
-            <h2 className="text-form">Which topics you are interested in?</h2>
-              
-              <div className="container-button">
-              <Button addContent={handleClick} content='Software Development' selected={false}/>
-              <Button addContent={handleClick} content='User Experience' selected={false}/>
-              <Button addContent={handleClick} content='Graphic Design' selected={false}/>
-              </div>
-
-              <span className="span-button">
-              <button className="button-form"><Link className="link" to={`/Summary`}>Continue</Link></button>
-
-              </span>
-          </section>
-        </div>
-        <p>
-          {selectedFields}
-        </p>
-      </>
-    );
+    setSelectedFields(content);
+    setSelectedBool(true);
+    console.log();
   };
-  export default Topics;
-  
+
+  return (
+    <>
+      <h1 className="h1-form">Multi-Step Register Form</h1>
+      <div className="container-section">
+        <section className="section-box">
+          <h2 className="text-form">Which topics you are interested in?</h2>
+
+          <div className="container-button">
+            <Button
+              addContent={handleClick}
+              content="Software Development"
+              selected={selectedBool}
+              className={
+                selectedBool
+                  ? (Button.className = "button-topics2")
+                  : (Button.className = "button-topics")
+              }
+            />
+            <Button
+              addContent={handleClick}
+              content="User Experience"
+              selected={selectedBool}
+              className={
+                selectedBool
+                  ? (Button.className = "button-topics2")
+                  : (Button.className = "button-topics")
+              }
+            />
+            <Button
+              addContent={handleClick}
+              content="Graphic Design"
+              selected={selectedBool}
+              className={
+                selectedBool
+                  ? (Button.className = "button-topics2")
+                  : (Button.className = "button-topics")
+              }
+            />
+          </div>
+
+          <span className="span-button">
+            <Link className="link" to={`/Summary`}>
+              <button className="button-form">Continue</button>
+            </Link>
+          </span>
+        </section>
+      </div>
+      <p>{selectedFields}</p>
+    </>
+  );
+};
+
+export default Topics;
