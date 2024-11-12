@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import Button from "./Button";
+import { useLoginContext } from "../context/context";
 
 const Topics = () => {
-  const [selectedFields, setSelectedFields] = useState("");
+  /* const [selectedFields, setSelectedFields] = useState(""); */
+  const { loginTopics, setLoginTopics } = useLoginContext();
 
   const handleClick = (content) => {
-    setSelectedFields(content);
+    setLoginTopics(content);
   };
 
   return (
@@ -20,17 +21,17 @@ const Topics = () => {
             <Button
               addContent={handleClick}
               content="Software Development"
-              isActive={selectedFields === "Software Development"}
+              isActive={loginTopics === "Software Development"}
             />
             <Button
               addContent={handleClick}
               content="User Experience"
-              isActive={selectedFields === "User Experience"}
+              isActive={loginTopics === "User Experience"}
             />
             <Button
               addContent={handleClick}
               content="Graphic Design"
-              isActive={selectedFields === "Graphic Design"}
+              isActive={loginTopics === "Graphic Design"}
             />
           </div>
 
@@ -41,7 +42,6 @@ const Topics = () => {
           </span>
         </section>
       </div>
-      <p>{selectedFields}</p>
     </>
   );
 };

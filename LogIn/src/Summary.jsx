@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import { useLoginContext } from "./context/context.jsx";
 
 const Summary = () => {
-  const {} = useLoginContext();
+  const { loginTopics } = useLoginContext();
   return (
     <>
       <h1 className="h1-form">Multi-Step Register Form</h1>
@@ -20,7 +21,9 @@ const Summary = () => {
             <p>
               <span className="grey-text">Topics:</span>
             </p>
-            <ul className="list-sum"></ul>
+            <ul className="list-sum">
+              <p>{loginTopics}</p>
+            </ul>
           </div>
           <span className="span-button">
             <Link className="link" to={`/`}>

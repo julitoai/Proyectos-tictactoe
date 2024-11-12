@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 const Root = () => {
   return (
     <>
@@ -13,7 +12,6 @@ const Root = () => {
           <Link className="link" to={`Topics`}>
             <button className="button-form">Topics</button>
           </Link>
-
           <Link className="link" to={`Summary`}>
             {" "}
             <button className="button-form">Summary</button>

@@ -1,9 +1,10 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
-export const LoginContext = createContext(null);
+export const LoginContext = createContext({});
 
+// eslint-disable-next-line react/prop-types
 export function LoginContextProvider({ children }) {
-  const [loginTopics, setLoginTopics] = useState("");
+  const [loginTopics, setLoginTopics] = useState();
 
   return (
     <LoginContext.Provider value={{ loginTopics, setLoginTopics }}>
@@ -12,6 +13,7 @@ export function LoginContextProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLoginContext = () => {
   const context = useContext(LoginContext);
 

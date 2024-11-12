@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
-import React from "react";
 import ReactDOM from "react-dom";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./Login.jsx";
 import Topics from "./Topics/Topics.jsx";
 import Summary from "./Summary.jsx";
@@ -9,6 +8,7 @@ import "./index.css";
 import Root from "./routes/root.jsx";
 import ErrorPage from "./error-page.jsx";
 import Api from "./Api.jsx";
+import { LoginContextProvider } from "./context/context.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +36,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <LoginContextProvider>
+      <RouterProvider router={router} />
+    </LoginContextProvider>
   </StrictMode>
 );
