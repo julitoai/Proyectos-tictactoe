@@ -4,12 +4,9 @@ import Button from "./Button";
 
 const Topics = () => {
   const [selectedFields, setSelectedFields] = useState("");
-  const [selectedBool, setSelectedBool] = useState();
 
   const handleClick = (content) => {
     setSelectedFields(content);
-    setSelectedBool(true);
-    console.log();
   };
 
   return (
@@ -23,32 +20,17 @@ const Topics = () => {
             <Button
               addContent={handleClick}
               content="Software Development"
-              selected={selectedBool}
-              className={
-                selectedBool
-                  ? (Button.className = "button-topics2")
-                  : (Button.className = "button-topics")
-              }
+              isActive={selectedFields === "Software Development"}
             />
             <Button
               addContent={handleClick}
               content="User Experience"
-              selected={selectedBool}
-              className={
-                selectedBool
-                  ? (Button.className = "button-topics2")
-                  : (Button.className = "button-topics")
-              }
+              isActive={selectedFields === "User Experience"}
             />
             <Button
               addContent={handleClick}
               content="Graphic Design"
-              selected={selectedBool}
-              className={
-                selectedBool
-                  ? (Button.className = "button-topics2")
-                  : (Button.className = "button-topics")
-              }
+              isActive={selectedFields === "Graphic Design"}
             />
           </div>
 

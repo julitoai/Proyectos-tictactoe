@@ -1,10 +1,9 @@
-const Button = ({ addContent, content, selected, className }) => {
+const Button = ({ addContent, content, isActive }) => {
   return (
     <>
       <button
-        className={className}
+        className={isActive ? "button-topics2" : "button-topics"}
         onClick={() => addContent(content)}
-        selected={selected}
       >
         {content}
       </button>

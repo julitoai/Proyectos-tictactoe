@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const Summary = () => {
-  const [campos, setCampos] = useState([]);
-
+  const {} = useLoginContext();
   return (
     <>
       <h1 className="h1-form">Multi-Step Register Form</h1>
@@ -22,9 +20,7 @@ const Summary = () => {
             <p>
               <span className="grey-text">Topics:</span>
             </p>
-            <ul className="list-sum">
-              <li>{campos}</li>
-            </ul>
+            <ul className="list-sum"></ul>
           </div>
           <span className="span-button">
             <Link className="link" to={`/`}>
