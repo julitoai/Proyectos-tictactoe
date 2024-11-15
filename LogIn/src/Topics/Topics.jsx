@@ -8,6 +8,7 @@ const Topics = () => {
 
   const handleClick = (content) => {
     setLoginTopics(content);
+    loginTopics ? setLoginTopics("") : loginTopics;
   };
 
   return (
